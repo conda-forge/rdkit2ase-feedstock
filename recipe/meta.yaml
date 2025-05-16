@@ -1,5 +1,5 @@
 {% set name = "rdkit2ase" %}
-{% set version = "0.1.4" %}
+{% set version = "0.1.5" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/rdkit2ase-{{ version }}.tar.gz
-  sha256: 562da58dff1ee92cb8aff14475b2bb7f8cd99f63b962d60ef8c6c36ee1869a97
+  sha256: 974aad43a2f5d3c0604e9e0980c84b1714969e84728d729325debb60c81a1dc9
 
 build:
   noarch: python
@@ -18,12 +18,12 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - poetry-core
+    - hatchling
     - pip
   run:
     - python >={{ python_min }},<4.0.0
-    - rdkit >=2024.0.0,<2025.0.0
-    - ase >=3.22.0,<4.0.0
+    - rdkit >=2024
+    - ase >=3.25.0
     - networkx >=3.0.0,<4.0.0
 
 test:
