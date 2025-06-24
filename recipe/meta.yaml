@@ -1,5 +1,5 @@
 {% set name = "rdkit2ase" %}
-{% set version = "0.1.7" %}
+{% set version = "0.1.8" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/rdkit2ase-{{ version }}.tar.gz
-  sha256: 3482a5661d73b201f2fa357e9f65a6366b7da854b81347d7f0585956c6256393
+  sha256: 7e4ed9e909261aa48faabb9c848dbb67f45edc5632869ed100575741c6c363e6
 
 build:
   noarch: python
@@ -24,7 +24,7 @@ requirements:
     - python >={{ python_min }},<4.0.0
     - rdkit >=2024
     - ase >=3.25.0
-    - networkx >=3.0.0,<4.0.0
+    - networkx >=3.4.2
 
 test:
   imports:
