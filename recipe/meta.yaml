@@ -1,5 +1,5 @@
 {% set name = "rdkit2ase" %}
-{% set version = "0.1.12" %}
+{% set version = "0.1.13" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/rdkit2ase-{{ version }}.tar.gz
-  sha256: 00eb950cb1f23e79276091b029f0eb2592023e5f89c6cbc1b1d5de10c018241d
+  sha256: 557d691addc967795504354706fe2dee287ae3e356d913b549dd3b1cf100dcb6
 
 build:
   noarch: python
@@ -21,6 +21,7 @@ requirements:
     - hatchling
     - pip
   run:
+    - matplotlib-base >=3.10.1
     - python >={{ python_min }},<4.0.0
     - rdkit >=2024
     - ase >=3.25.0
