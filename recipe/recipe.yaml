@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: rdkit2ase
+  version: "0.1.13"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/rdkit2ase-${{ version }}.tar.gz
+  sha256: 557d691addc967795504354706fe2dee287ae3e356d913b549dd3b1cf100dcb6
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - matplotlib-base >=3.10.1
+    - python >=${{ python_min }},<4.0.0
+    - rdkit >=2024
+    - ase >=3.25.0
+    - networkx >=3.4.2
+
+tests:
+  - python:
+      imports:
+        - rdkit2ase
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: interface between rdkit and ASE
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/zincware/rdkit2ase
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
